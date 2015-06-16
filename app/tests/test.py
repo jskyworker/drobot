@@ -1,17 +1,17 @@
 import unittest
-import urllib2
+from urllib2 import HTTPError, urlopen
 
 
 def analyze_drobot_404(url):
     try:
-        urllib2.urlopen(url, timeout=4)
-    except urllib2.HTTPError as e:
+        urlopen(url, timeout=4)
+    except HTTPError as e:
         print(str(e))
 
 
 def analyze_drobot_args(urllist):
     for i in urllist:
-        r = urllib2.urlopen(i, timeout=4)
+        r = urlopen(i, timeout=4)
         print(r.read())
 
 class DrobotTests(unittest.TestCase):

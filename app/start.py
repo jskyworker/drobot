@@ -113,7 +113,3 @@ def get_mongo_db(host='localhost', port=27017):
     except Exception as e:
         print(str(e))
         return False
-
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)

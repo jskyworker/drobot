@@ -1,8 +1,7 @@
 FROM docker.io/mongo
 MAINTAINER Y. Mykhailin <jskyworker@gmail.com>
 
-ADD ./ /flask
-
+ADD ../app /flask
 
 RUN \
   rm -fr /flask/.git ;\
