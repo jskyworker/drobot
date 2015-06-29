@@ -1,0 +1,17 @@
+---
+- name: Apt update cache
+  apt: 
+    update_cache: yes
+
+- name: Installs required software
+  apt: 
+    name: "{{ item }}"
+    cache_valid_time: 3600
+  with_items:
+    - sudo
+    - htop
+    - mc
+    - vim
+    - git
+    - screen
+#    - python-pip  # Require for 'pip' ansible module

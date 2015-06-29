@@ -1,6 +1,0 @@
-- hosts: default 
-  gather_facts: yes
-  sudo: true
-  tasks:
-    - name: update apt-cache
-      apt: update_cache=yes

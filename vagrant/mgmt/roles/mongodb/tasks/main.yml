@@ -1,0 +1,13 @@
+---
+- name: update cache
+  apt: update_cache=yes
+- name: Import the public key used by the package management system
+  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=7F0CEB10 state=present
+- name: Add MongoDB repository
+  apt_repository: repo='deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' state=present
+- name: Install mongodb package
+  apt: pkg=mongodb-org state=latest update_cache=yes
+- name: deploy haproxy config
+  template: src=mongod.conf.j2 dest=/etc/mongod.conf
+  notify: start mongodb
+

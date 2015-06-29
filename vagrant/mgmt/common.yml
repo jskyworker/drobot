@@ -1,0 +1,14 @@
+# common roles
+- hosts: all
+  sudo: yes
+  gather_facts: no
+
+  roles:
+    - common
+
+- hosts: db
+  sudo: yes
+  gather_facts: no
+
+  roles:
+    - mongodb
